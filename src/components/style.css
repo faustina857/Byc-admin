@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Short+Stack&display=swap');
+
+* {
+    font-family: "Short Stack";
+}
+
+.row {
+    margin: 0 !important;
+}
+.form-control {
+    padding: 13px !important;
+    border-radius: 15px !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
+}
+
+.form-sec {
+    background: transparent;
+    margin: 20% 40px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.log-btn {
+    outline: none;
+    border: 0;
+    box-shadow: none;
+    background: #BD3A3A;
+    color: #fff;
+    padding: 8px;
+    width: 100%;
+    border-radius: 13px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+@media screen and (max-width: 650px) {
+    .top-form {
+        display: none;
+    }
+
+    .bottom-form {
+        height: 100vh;
+    }
+
+    .form-sec {
+        margin: 50% auto;
+    }
+}
