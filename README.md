@@ -1,4 +1,4 @@
-# React + TypeScript + Vite
+# React + Vite
 
 # Byc-admin dashboard
 A responsive admin dashboard for managing the BYC e-commerce platform, including users, products, orders, and payments, built with React and Vite.
@@ -29,19 +29,16 @@ Byc-admin/
 │   │   └── Sidebar.jsx
 │   ├── App.css           
 │   ├── App.test.js        
-│   ├── App.tsx
+│   ├── App.jsx
 │   ├── Display.jsx    
 │   ├── index.css       
 │   ├── index.js        
-│   ├── main.tsx            
+│   ├── main.jsx            
 │   ├── reportWebVital.js           
 │   └── setupTests.js         
 ├── .gitignore
 ├── index.html
 ├── package-lock.json
 ├── package.json
-├── tsconfig.app.json
-├── tsconfig.json
-├── tsconfig.node.json
-├── vite.config.ts
+├── vite.config.js
 └── README.md
