@@ -1,7 +1,8 @@
 import React from 'react'
 import './pages.css'
 
-const Sidebar = ({ onButtonClick, activeContent }) => {
+const Sidebar = ({ onButtonClick, activeContent, isOpen, closeSidebar }) => {
+
     const buttonItems = [
         {
             id: 0,
@@ -12,31 +13,31 @@ const Sidebar = ({ onButtonClick, activeContent }) => {
         {
             id: 1,
             name: 'Categories',
-            las: 'las la-layer-group px-3',
+            las: 'las la-clipboard-list px-3',
             bname: 'categories'
         },
         {
             id: 2,
             name: 'Products',
-            las: 'las la-file-upload px-3',
+            las: 'las la-layer-group px-3',
             bname: 'products'
         },
         {
             id: 3,
             name: 'Orders',
-            las: 'las la-file-upload px-3',
+            las: 'las la-shopping-cart px-3',
             bname: 'orders'
         },
         {
             id: 4,
             name: 'Blogs',
-            las: 'las la-user px-3',
+            las: 'las la-blog px-3',
             bname: 'blogs'
         },
         {
             id: 5,
             name: 'Customers',
-            las: 'las la-user px-3',
+            las: 'las la-users px-3',
             bname: 'customers'
         }
     ]
@@ -44,7 +45,9 @@ const Sidebar = ({ onButtonClick, activeContent }) => {
 
     const showMenu = buttonItems.map((item) => { 
         return <button key={item.id} className={activeContent === item.bname ? 'sidebar-menu button active': 'sidebar-menu button'} 
-        onClick={() => { onButtonClick(item.bname)}}>
+        onClick={() => { onButtonClick(item.bname)
+            closeSidebar();
+        }}>
         <i className={item.las} style={{color: '#b6cc00'}} ></i>
         {item.name}
         </button>
@@ -52,7 +55,7 @@ const Sidebar = ({ onButtonClick, activeContent }) => {
 
   return (
     <React.Fragment>
-        <div className="sidebar">
+        <div className={`sidebar ${isOpen ? "open" : ""}`}>
             <div className="sidebar-menu">
                 { showMenu }
             </div>

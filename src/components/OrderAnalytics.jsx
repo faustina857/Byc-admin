@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis,CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell} from 'recharts';
-import { DollarSign, ShoppingCart, Package, AlertCircle } from 'lucide-react';
+import { Banknote, ShoppingCart, Package, AlertCircle } from 'lucide-react';
 
 const OrderAnalytics = ({ orders = [] }) => {
   const [timeRange, setTimeRange] = useState('week');
@@ -95,7 +95,7 @@ const OrderAnalytics = ({ orders = [] }) => {
       {/* STATS */}
       <div className="row mb-4">
         <StatCard title="Total Orders" value={totalOrders} Icon={ShoppingCart} />
-        <StatCard title="Total Revenue" value={`₦${totalRevenue}`} Icon={DollarSign} />
+        <StatCard title="Total Revenue" value={`₦${totalRevenue}`} Icon={Banknote} />
         <StatCard title="Total Items" value={totalItems} Icon={Package} />
       </div>
 
@@ -146,7 +146,7 @@ const OrderAnalytics = ({ orders = [] }) => {
 
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
-                  <Pie data={statusData} dataKey="value" outerRadius={80} label>
+                  <Pie data={statusData} dataKey="value" outerRadius={70} label>
                     {statusData.map((item, i) => (
                       <Cell key={i} fill={item.color} />
                     ))}

@@ -184,6 +184,27 @@ const Products = () => {
     });
   };
 
+   const modalOverlayStyle = {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 9999,
+  };
+  const modalContentStyle ={
+     backgroundColor: '#fff',
+        padding: '20px',
+        borderRadius: '8px',
+        width: '90%',
+        maxWidth: '500px',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+  }
+
   if (loading) return <p>Loading products...</p>;
   if (error) return <p style={{ color: "red" }}>{error}</p>;
 
@@ -210,8 +231,8 @@ const Products = () => {
       </div>
 
       {showForm && (
-        <div className="product-form-wrapper">
-          <form onSubmit={handleSaveProduct} className="product-form">
+        <div className="product-form-wrapper" style={modalOverlayStyle}>
+          <form onSubmit={handleSaveProduct} style={modalContentStyle} className="product-form">
             <h3>{updatingProduct ? "Update Product" : "Add New Product"}</h3>
 
             <input type="text" name="productName" placeholder="Product Name"
@@ -267,6 +288,7 @@ const Products = () => {
           <tr>
             <th>Image</th>
             <th>Name</th>
+            <th>Model No.</th>
             <th>Price (₦)</th>
             <th>Category</th>
             <th>Stock</th>
@@ -285,6 +307,7 @@ const Products = () => {
                 />
               </td>
               <td>{product.productName}</td>
+              <td>{product.productNumber}</td>
               <td>{product.productPrice}</td>
               <td>{product.category?.name}</td>
               <td>{product.numberInStock}</td>

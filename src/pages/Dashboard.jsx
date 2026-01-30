@@ -13,6 +13,8 @@ import axios from 'axios'
 const Dashboard = () => {
   const [activeContent, setActiveContent] = useState('dashboard');
   const [orders, setOrders] = useState([]);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
 
   const handleButtonClick = (content) => {
     setActiveContent(content);
@@ -28,11 +30,21 @@ const Dashboard = () => {
 
   return (
     <React.Fragment>
-      <Sidebar onButtonClick={handleButtonClick} activeContent={activeContent}/>
+      <Sidebar onButtonClick={handleButtonClick} activeContent={activeContent}
+       isOpen={isSidebarOpen}
+        closeSidebar={() => setIsSidebarOpen(false)}/>
       <div className="main-content mt-5 p-3">
           <header>
-            <i className="las la-bars">Admin Dashboard</i>
+            <button
+              className="menu-btn"
+              onClick={() => setIsSidebarOpen(prev => !prev) }
+            >
+              ☰
+            </button>
+
+            <span>Admin Dashboard</span>
           </header>
+
           {activeContent === 'dashboard' && (
             <>
           <Cards />
