@@ -25,7 +25,7 @@ const Blogs = () => {
 
   const fetchBlogs = async () => {
     try {
-    const res = await axios.get('http://localhost:3001/api/byc-stores/blog/get-all-blogs');
+    const res = await axios.get('https://byc-ecommerce-backend.onrender.com/api/byc-stores/blog/get-all-blogs');
     setBlogs(res.data);
     } catch (err) {
       setError(err.response?.data?.message || "Failed to fetch blogs");
@@ -42,7 +42,7 @@ const Blogs = () => {
   try {
     if (updatingBlog) {
       await axios.put(
-        `http://localhost:3001/api/byc-stores/blog/update-blog/${updatingBlog}`,
+        `https://byc-ecommerce-backend.onrender.com/api/byc-stores/blog/update-blog/${updatingBlog}`,
         formData,
         { headers: { "x-auth-token": token } }
       );
@@ -50,7 +50,7 @@ const Blogs = () => {
       Swal.fire("Updated!", "Blog updated successfully", "success");
     } else {
       await axios.post(
-        "http://localhost:3001/api/byc-stores/blog/add-new-blog",
+        "https://byc-ecommerce-backend.onrender.com/api/byc-stores/blog/add-new-blog",
         formData,
         { headers: { "x-auth-token": token } }
       );
@@ -100,7 +100,7 @@ const Blogs = () => {
     
         if (!confirmDelete.isConfirmed) return;
         try{
-    await axios.delete(`http://localhost:3001/api/byc-stores/blog/delete-blog/${id}`,
+    await axios.delete(`https://byc-ecommerce-backend.onrender.com/api/byc-stores/blog/delete-blog/${id}`,
       {
           headers: { "x-auth-token": token },
       }

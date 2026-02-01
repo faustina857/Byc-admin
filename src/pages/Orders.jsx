@@ -29,7 +29,7 @@ const Orders = () => {
   const fetchOrders = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3001/api/byc-stores/order/get-all-orders",
+        "https://byc-ecommerce-backend.onrender.com/api/byc-stores/order/get-all-orders",
         {
           headers: { "x-auth-token": token },
         }
@@ -46,7 +46,7 @@ const Orders = () => {
   const handlePaymentChange = async (orderId, newStatus) => {
     try {
       await axios.put(
-        `http://localhost:3001/api/byc-stores/order/update-payment-status/${orderId}`,
+        `https://byc-ecommerce-backend.onrender.com/api/byc-stores/order/update-payment-status/${orderId}`,
         { paymentStatus: newStatus,
             headers:{
                  "x-auth-token": token 
@@ -67,7 +67,7 @@ const Orders = () => {
 
     try {
       await axios.put(
-        `http://localhost:3001/api/byc-stores/order/update-delivery-status/${orderId}`,
+        `https://byc-ecommerce-backend.onrender.com/api/byc-stores/order/update-delivery-status/${orderId}`,
         { deliveryStatus: status },
         {
           headers: { "x-auth-token": token },

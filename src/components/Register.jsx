@@ -30,7 +30,7 @@ const Register = () => {
     setStatus((prev) => ({ ...prev, spinItem: true, error: null }));
 
     try {
-      await axios.post('http://localhost:3001/api/byc-stores/user/register', formData);
+      await axios.post('https://byc-ecommerce-backend.onrender.com/api/byc-stores/user/register', formData);
       setStatus((prev) => ({ ...prev, spinItem: false, success: true }));
     } catch (err) {
        const errorMessage = err.response?.data?.message || err.message || 'Registration failed';

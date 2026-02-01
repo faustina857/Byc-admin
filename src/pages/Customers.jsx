@@ -8,7 +8,7 @@ const Customers = () => {
     const fetchCustomers = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:3001/api/byc-stores/customer/get-all-customers",
+          "https://byc-ecommerce-backend.onrender.com/api/byc-stores/customer/get-all-customers",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

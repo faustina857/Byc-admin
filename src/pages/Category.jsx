@@ -16,7 +16,7 @@ const Categories = () => {
 
   const fetchCategories = async () => {
     try {
-      const res = await axios.get('http://localhost:3001/api/byc-stores/category/get-all-categories', {
+      const res = await axios.get('https://byc-ecommerce-backend.onrender.com/api/byc-stores/category/get-all-categories', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCategories(Array.isArray(res.data) ? res.data : res.data.categories || []);
@@ -30,7 +30,7 @@ const Categories = () => {
     e.preventDefault();
     try {
       if (updatingId) {
-        await axios.put(`http://localhost:3001/api/byc-stores/category/update-category/${updatingId}`, 
+        await axios.put(`https://byc-ecommerce-backend.onrender.com/api/byc-stores/category/update-category/${updatingId}`, 
           { name }, 
           {
             headers: { "x-auth-token": localStorage.getItem("adminToken") },
@@ -41,7 +41,7 @@ const Categories = () => {
           title:'category updated'
         })
       } else {
-        await axios.post('http://localhost:3001/api/byc-stores/category/add-new-category', 
+        await axios.post('https://byc-ecommerce-backend.onrender.com/api/byc-stores/category/add-new-category', 
           { name }, 
           {
             headers: { "x-auth-token": localStorage.getItem("adminToken") },
@@ -68,14 +68,20 @@ const Categories = () => {
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm)
-     return;
-    Swal.fire({
-        icon:'warning',
-        title:"Are you sure you want to delete?"})
+    const confirmDelete = await Swal.fire({
+            title: "Delete Category?",
+            text: "This action cannot be undone!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#BD3A3A",
+            cancelButtonColor: "#999",
+            confirmButtonText: "Yes, delete it!",
+          });
+        
+            if (!confirmDelete.isConfirmed) return;
     
     try {
-      await axios.delete(`http://localhost:3001/api/byc-stores/category/delete-category/${id}`, {
+      await axios.delete(`https://byc-ecommerce-backend.onrender.com/api/byc-stores/category/delete-category/${id}`, {
         headers: { "x-auth-token": localStorage.getItem("adminToken") },
       });
       Swal.fire({

@@ -27,7 +27,7 @@ const Products = () => {
   const fetchProducts = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3001/api/byc-stores/product/get-all-products",
+        "https://byc-ecommerce-backend.onrender.com/api/byc-stores/product/get-all-products",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -46,7 +46,7 @@ const Products = () => {
   const fetchCategories = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3001/api/byc-stores/category/get-all-categories"
+        "https://byc-ecommerce-backend.onrender.com/api/byc-stores/category/get-all-categories"
       );
       setCategories(res.data);
     } catch (err) {
@@ -77,7 +77,7 @@ const Products = () => {
     try {
       if (updatingProduct) {
         await axios.put(
-          `http://localhost:3001/api/byc-stores/product/update-product/${updatingProduct._id}`,
+          `https://byc-ecommerce-backend.onrender.com/api/byc-stores/product/update-product/${updatingProduct._id}`,
           formData,
           {
             headers: { "x-auth-token": token },
@@ -91,7 +91,7 @@ const Products = () => {
       } else {
         // Create
         await axios.post(
-          "http://localhost:3001/api/byc-stores/product/add-new-product",
+          "https://byc-ecommerce-backend.onrender.com/api/byc-stores/product/add-new-product",
           formData,
           {
             headers: { "x-auth-token": token },
@@ -148,7 +148,7 @@ const Products = () => {
 
     try {
       await axios.delete(
-        `http://localhost:3001/api/byc-stores/product/delete-product/${id}`,
+        `https://byc-ecommerce-backend.onrender.com/api/byc-stores/product/delete-product/${id}`,
         {
           headers: { "x-auth-token": token },
         }

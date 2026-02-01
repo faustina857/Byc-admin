@@ -30,23 +30,23 @@ const Cards = () => {
           blogsRes,
         ] = await Promise.all([
           axios.get(
-            "http://localhost:3001/api/byc-stores/category/get-all-categories",
+            "https://byc-ecommerce-backend.onrender.com/api/byc-stores/category/get-all-categories",
             { headers }
           ),
           axios.get(
-            "http://localhost:3001/api/byc-stores/product/get-all-products",
+            "https://byc-ecommerce-backend.onrender.com/api/byc-stores/product/get-all-products",
             { headers }
           ),
           axios.get(
-            "http://localhost:3001/api/byc-stores/order/get-all-orders",
+            "https://byc-ecommerce-backend.onrender.com/api/byc-stores/order/get-all-orders",
             { headers }
           ),
           axios.get(
-            "http://localhost:3001/api/byc-stores/customer/get-all-customers",
+            "https://byc-ecommerce-backend.onrender.com/api/byc-stores/customer/get-all-customers",
             { headers }
           ),
           axios.get(
-            "http://localhost:3001/api/byc-stores/blog/get-all-blogs",
+            "https://byc-ecommerce-backend.onrender.com/api/byc-stores/blog/get-all-blogs",
             { headers }
           ),
         ]);

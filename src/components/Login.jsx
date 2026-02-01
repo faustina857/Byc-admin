@@ -29,7 +29,7 @@ const Login = () => {
     setStatus((prev) => ({ ...prev, spinItem: true, error: null }));
     
     try {
-      const response = await axios.post('http://localhost:3001/api/byc-stores/auth/login', formData);
+      const response = await axios.post('https://byc-ecommerce-backend.onrender.com/api/byc-stores/auth/login', formData);
       const { token, isAdmin } = response.data;
 
     // 🚫 Block non-admin users

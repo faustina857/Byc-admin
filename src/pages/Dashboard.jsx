@@ -21,7 +21,7 @@ const Dashboard = () => {
   };
 
    useEffect(() => {
-    axios.get('http://localhost:3001/api/byc-stores/order/get-all-orders') 
+    axios.get('https://byc-ecommerce-backend.onrender.com/api/byc-stores/order/get-all-orders') 
       .then(res => {
         setOrders(res.data);
       })
