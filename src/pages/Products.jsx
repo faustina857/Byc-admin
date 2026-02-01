@@ -290,7 +290,7 @@ const Products = () => {
             <th>Name</th>
             <th>Model No.</th>
             <th>Price (₦)</th>
-            <th>Category</th>
+            <th className="hide-mobile">Category</th>
             <th>Stock</th>
             <th>Actions</th>
           </tr>
@@ -308,8 +308,8 @@ const Products = () => {
               </td>
               <td>{product.productName}</td>
               <td>{product.productNumber}</td>
-              <td>{product.productPrice}</td>
-              <td>{product.category?.name}</td>
+              <td>₦{product.productPrice}</td>
+              <td className="hide-mobile">{product.category?.name}</td>
               <td>{product.numberInStock}</td>
               <td>
                   <div style={{ display: "flex", gap:'10px' }}>
