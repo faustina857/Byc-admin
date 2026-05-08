@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import {
-  BarChart, Bar, XAxis, YAxis,CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell} from 'recharts';
+import { BarChart, Bar, XAxis, YAxis,CartesianGrid, Tooltip,
+   Legend, ResponsiveContainer, PieChart, Pie, Cell} from 'recharts';
 import { Banknote, ShoppingCart, Package, AlertCircle } from 'lucide-react';
 
 const OrderAnalytics = ({ orders = [] }) => {

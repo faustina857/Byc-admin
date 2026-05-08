@@ -50,6 +50,10 @@ const Login = () => {
     }
   };
 
+  const handleDemoLogin = () => {
+    setFormData({ email: 'faustinaifunanya03@gmail.com', password: '33655884' });
+  };
+
   useEffect(() => {
     if (success) {
       navigate('/dashboard');
@@ -95,6 +99,9 @@ const Login = () => {
                                 'Login'
                             )
                         }
+                    </button>
+                    <button type="button" className="log-btn mt-2" style={{ backgroundColor: '#555' }} onClick={handleDemoLogin}>
+                        Use Demo Account
                     </button>
                     {error && <p className="text-danger">Error: {error}</p>}
                     {success && <p className="text-success">Login successful!</p>}
