@@ -20,13 +20,12 @@ const Orders = () => {
     setShowModal(false)
   };
 
-  const token = localStorage.getItem("adminToken");
-
   useEffect(() => {
     fetchOrders();
   }, []);
 
   const fetchOrders = async () => {
+    const token = localStorage.getItem("adminToken");
     try {
       const res = await axios.get(
         "https://byc-ecommerce-backend.onrender.com/api/byc-stores/order/get-all-orders",
@@ -47,11 +46,10 @@ const Orders = () => {
     try {
       await axios.put(
         `https://byc-ecommerce-backend.onrender.com/api/byc-stores/order/update-payment-status/${orderId}`,
-        { paymentStatus: newStatus,
-            headers:{
-                 "x-auth-token": token 
-            }
-         }
+        { paymentStatus: newStatus },
+        {
+          headers: { "x-auth-token": token },
+        }
       );
       fetchOrders();
     } catch (err) {
