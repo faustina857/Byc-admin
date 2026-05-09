@@ -20,8 +20,11 @@ const Dashboard = () => {
     setActiveContent(content);
   };
 
-   useEffect(() => {
-    axios.get('https://byc-ecommerce-backend.onrender.com/api/byc-stores/order/get-all-orders') 
+  useEffect(() => {
+    const token = localStorage.getItem("adminToken");
+    axios.get('https://byc-ecommerce-backend.onrender.com/api/byc-stores/order/get-all-orders', {
+      headers: { "x-auth-token": token }
+    })
       .then(res => {
         setOrders(res.data);
       })
